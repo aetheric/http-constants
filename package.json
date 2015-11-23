@@ -1,0 +1,23 @@
+{
+  "name": "http-constants",
+  "version": "1.0.0",
+  "description": "Constant values for http (headers, codes, etc.)",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aetheric/http-constants.git"
+  },
+  "keywords": [
+    "http",
+    "constants"
+  ],
+  "author": "Peter Cummuskey <peterc@aetheric.co.nz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aetheric/http-constants/issues"
+  },
+  "homepage": "https://github.com/aetheric/http-constants#readme"
+}
