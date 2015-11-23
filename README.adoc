@@ -1,0 +1,4 @@
+= HTTP CONSTANTS
+:author: Peter Cummuskey
+:email: peterc@aetheric.co.nz
+
