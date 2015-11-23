@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/aetheric/http-constants/issues"
   },
-  "homepage": "https://github.com/aetheric/http-constants#readme"
+  "homepage": "https://github.com/aetheric/http-constants#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0"
+  }
 }

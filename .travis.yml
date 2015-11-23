@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - "0.10"
+
+script:
+  - gulp build
+  - gulp test
+  - gulp docs
+
+before_deploy:
+  - rm -rf src/test
+
+deploy:
+
+  - provider: npm
+    email: peterc@aetheric.co.nz
+    skip_cleanup: true
+    api_key:
+      secure: ???
+    on:
+      tags: true
+
+  - provider: releases
+    skip_cleanup: true
+    file:
+      - dist/http-constants.js
+      - dist/http-constants.min.js
+    api_key:
+      secure: ???
+    on:
+      tags: true
