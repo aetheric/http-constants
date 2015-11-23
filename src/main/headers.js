@@ -227,317 +227,343 @@ export const RANGE = 'Range';
  */
 export const REFERER = 'Referer';
 
-
-TE	The transfer encodings the user agent is willing to accept: the same values as for the response header field Transfer-Encoding can be used, plus the "trailers" value (related to the "chunked" transfer method) to notify the server it expects to receive additional fields in the trailer after the last, zero-sized, chunk.	TE: trailers, deflate	Permanent
+/**
+ * The transfer encodings the user agent is willing to accept: the same values as for the response header field
+ * Transfer-Encoding can be used, plus the "trailers" value (related to the "chunked" transfer method) to notify the
+ * server it expects to receive additional fields in the trailer after the last, zero-sized, chunk. Permanent.
+ * Examples:
+ * <code>TE: trailers, deflate</code>
+ * @type {String}
+ */
+export const TE = 'TE';
 
 /**
  * The user agent string of the user agent	User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0	Permanent
  */
-export const User-Agent = 'User-Agent';
+export const USER_AGENT = 'User-Agent';
 
 /**
  * Ask the server to upgrade to another protocol.	Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11	Permanent
  */
-export const Upgrade = 'Upgrade';
+export const UPGRADE = 'Upgrade';
 
 /**
  * Informs the server of proxies through which the request was sent.	Via: 1.0 fred, 1.1 example.com (Apache/1.1)	Permanent
  */
-export const Via = 'Via';
+export const VIA = 'Via';
 
 /**
  * A general warning about possible problems with the entity body.	Warning: 199 Miscellaneous warning	Permanent
  */
-export const Warning = 'Warning';
+export const WARNING = 'Warning';
 
 
 /**
  * mainly used to identify Ajax requests. Most JavaScript frameworks send this field with value of XMLHttpRequest	X-Requested-With: XMLHttpRequest
  */
-export const X-Requested-With = 'X-Requested-With';
+export const X_REQUESTED_WITH = 'X-Requested-With';
 
 /**
- * Requests a web application to disable their tracking of a user. This is Mozilla's version of the X-Do-Not-Track header field (since Firefox 4.0 Beta 11). Safari and IE9 also have support for this field.[12] On March 7, 2011, a draft proposal was submitted to IETF.[13] The W3C Tracking Protection Working Group is producing a specification.[14]	DNT: 1 (Do Not Track Enabled)
+ * Requests a web application to disable their tracking of a user. This is Mozilla's version of the X-Do-Not-Track
+ * header field (since Firefox 4.0 Beta 11). Safari and IE9 also have support for this field.[12] On March 7, 2011, a
+ * draft proposal was submitted to IETF.[13] The W3C Tracking Protection Working Group is producing a specification.
+ * Examples:
+ * <code>DNT: 1 (Do Not Track Enabled)</code>
+ * <code>DNT: 0 (Do Not Track Disabled)</code>
+ * @type {String}
  */
-export const DNT[11] = 'DNT[11]';
-
-DNT: 0 (Do Not Track Disabled)
+export const DNT = 'DNT';
 
 /**
  * a de facto standard for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer	X-Forwarded-For: client1, proxy1, proxy2
+ X-Forwarded-For: 129.78.138.66, 129.78.64.103
  */
-export const X-Forwarded-For[15] = 'X-Forwarded-For[15]';
+export const X_FORWARDED_FOR = 'X-Forwarded-For[15]';
 
-X-Forwarded-For: 129.78.138.66, 129.78.64.103
 
 /**
- * a de facto standard for identifying the original host requested by the client in the Host HTTP request header, since the host name and/or port of the reverse proxy (load balancer) may differ from the origin server handling the request.	X-Forwarded-Host: en.wikipedia.org:80
+ * a de facto standard for identifying the original host requested by the client in the Host HTTP request header, since
+ * the host name and/or port of the reverse proxy (load balancer) may differ from the origin server handling the
+ * request.	X-Forwarded-Host: en.wikipedia.org:80
+ X-Forwarded-Host: en.wikipedia.org
  */
-export const X-Forwarded-Host[16] = 'X-Forwarded-Host[16]';
-
-X-Forwarded-Host: en.wikipedia.org
+export const X_FORWARDED_HOST = 'X-Forwarded-Host[16]';
 
 /**
- * a de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (load balancer) may communicate with a web server using HTTP even if the request to the reverse proxy is HTTPS. An alternative form of the header (X-ProxyUser-Ip) is used by Google clients talking to Google servers.	X-Forwarded-Proto: https
+ * a de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (load
+ * balancer) may communicate with a web server using HTTP even if the request to the reverse proxy is HTTPS. An
+ * alternative form of the header (X-ProxyUser-Ip) is used by Google clients talking to Google servers.	X-Forwarded-Proto: https
  */
-export const X-Forwarded-Proto[17] = 'X-Forwarded-Proto[17]';
+export const X_FORWARDED_PROTO = 'X-Forwarded-Proto[17]';
 
 /**
  * Non-standard header field used by Microsoft applications and load-balancers	Front-End-Https: on
  */
-export const Front-End-Https[18] = 'Front-End-Https[18]';
+export const FRONT_END_HTTPS = 'Front-End-Https[18]';
 
 /**
  * Requests a web application override the method specified in the request (typically POST) with the method given in the header field (typically PUT or DELETE). Can be used when a user agent or firewall prevents PUT or DELETE methods from being sent directly (note that this either a bug in the software component, which ought to be fixed, or an intentional configuration, in which case bypassing it may be the wrong thing to do).	X-HTTP-Method-Override: DELETE
  */
-export const X-Http-Method-Override[19] = 'X-Http-Method-Override[19]';
+export const X_HTTP_METHOD_OVERRIDE = 'X-Http-Method-Override[19]';
 
 /**
  * Allows easier parsing of the MakeModel/Firmware that is usually found in the User-Agent String of AT&T Devices	X-Att-Deviceid: GT-P7320/P7320XXLPG
  */
-export const X-ATT-DeviceId[20] = 'X-ATT-DeviceId[20]';
+export const X_ATT_DEVICEID = 'X-ATT-DeviceId[20]';
 
 /**
  * Links to an XML file on the Internet with a full description and details about the device currently connecting. In the example to the right is an XML file for an AT&T Samsung Galaxy S2.	x-wap-profile: http://wap.samsungmobile.com/uaprof/SGH-I777.xml
  */
-export const X-Wap-Profile[21] = 'X-Wap-Profile[21]';
+export const X_WAP_PROFILE = 'X-Wap-Profile[21]';
 
-		Proxy-Connection[22]	Implemented as a misunderstanding of the HTTP specifications. Common because of mistakes in implementations of early HTTP versions. Has exactly the same functionality as standard Connection field.	Proxy-Connection: keep-alive
+/**
+ * Implemented as a misunderstanding of the HTTP specifications. Common because of mistakes in implementations of early HTTP versions. Has exactly the same functionality as standard Connection field.	Proxy-Connection: keep-alive
+ * @type {String}
+ */
+export const PROXY_CONNECTION = 'Proxy-Connection';
+
 /**
  * Server-side deep packet insertion of a unique ID identifying customers of Verizon Wireless; also known as "perma-cookie" or "supercookie"	X-UIDH: ...
  */
-export const X-UIDH[23][24][25] = 'X-UIDH[23][24][25]';
+export const X_UIDH = 'X-UIDH[23][24][25]';
 
 /**
  * Used to prevent cross-site request forgery. Alternative header names are: X-CSRFToken[27] and X-XSRF-TOKEN[28]	X-Csrf-Token: i8XNjC4b8KVok4uw5RftR38Wgp2BFwql
  */
-export const X-Csrf-Token[26] = 'X-Csrf-Token[26]';
+export const X_CSRF_TOKEN = 'X-Csrf-Token[26]';
 
 
 /**
  * Specifying which web sites can participate in cross-origin resource sharing	Access-Control-Allow-Origin: *	Provisional
  */
-export const Access-Control-Allow-Origin = 'Access-Control-Allow-Origin';
+export const ACCESS_CONTROL_ALLOW_ORIGIN = 'Access-Control-Allow-Origin';
 
 /**
  * Specifies which patch document formats this server supports	Accept-Patch: text/example;charset=utf-8	Permanent
  */
-export const Accept-Patch[29] = 'Accept-Patch[29]';
+export const ACCEPT_PATCH = 'Accept-Patch[29]';
 
 /**
  * What partial content range types this server supports via byte serving	Accept-Ranges: bytes	Permanent
  */
-export const Accept-Ranges = 'Accept-Ranges';
+export const ACCEPT_RANGES = 'Accept-Ranges';
 
 /**
  * The age the object has been in a proxy cache in seconds	Age: 12	Permanent
  */
-export const Age = 'Age';
+export const AGE = 'Age';
 
 /**
  * Valid actions for a specified resource. To be used for a 405 Method not allowed	Allow: GET, HEAD	Permanent
  */
-export const Allow = 'Allow';
+export const ALLOW = 'Allow';
 
 /**
  * Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds	Cache-Control: max-age=3600	Permanent
  */
-export const Cache-Control = 'Cache-Control';
+export const CACHE_CONTROL = 'Cache-Control';
 
 /**
  * Control options for the current connection and list of hop-by-hop response fields[8]	Connection: close	Permanent
  */
-export const Connection = 'Connection';
+export const CONNECTION = 'Connection';
 
 /**
  * An opportunity to raise a "File Download" dialogue box for a known MIME type with binary format or suggest a filename for dynamic content. Quotes are necessary with special characters.	Content-Disposition: attachment; filename="fname.ext"	Permanent
  */
-export const Content-Disposition[30] = 'Content-Disposition[30]';
+export const CONTENT_DISPOSITION = 'Content-Disposition[30]';
 
 /**
  * The type of encoding used on the data. See HTTP compression.	Content-Encoding: gzip	Permanent
  */
-export const Content-Encoding = 'Content-Encoding';
+export const CONTENT_ENCODING = 'Content-Encoding';
 
 /**
  * The natural language or languages of the intended audience for the enclosed content[31]	Content-Language: da	Permanent
  */
-export const Content-Language = 'Content-Language';
+export const CONTENT_LANGUAGE = 'Content-Language';
 
 /**
  * The length of the response body in octets (8-bit bytes)	Content-Length: 348	Permanent
  */
-export const Content-Length = 'Content-Length';
+export const CONTENT_LENGTH = 'Content-Length';
 
 /**
  * An alternate location for the returned data	Content-Location: /index.htm	Permanent
  */
-export const Content-Location = 'Content-Location';
+export const CONTENT_LOCATION = 'Content-Location';
 
 /**
  * A Base64-encoded binary MD5 sum of the content of the response	Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==	Obsolete[32]
  */
-export const Content-MD5 = 'Content-MD5';
+export const CONTENT_MD5 = 'Content-MD5';
 
 /**
  * Where in a full body message this partial message belongs	Content-Range: bytes 21010-47021/47022	Permanent
  */
-export const Content-Range = 'Content-Range';
+export const CONTENT_RANGE = 'Content-Range';
 
 /**
  * The MIME type of this content	Content-Type: text/html; charset=utf-8	Permanent
  */
-export const Content-Type = 'Content-Type';
+export const CONTENT_TYPE = 'Content-Type';
 
 /**
  * The date and time that the message was sent (in "HTTP-date" format as defined by RFC 7231)	Date: Tue, 15 Nov 1994 08:12:31 GMT	Permanent
  */
-export const Date = 'Date';
+export const DATE = 'Date';
 
 /**
  * An identifier for a specific version of a resource, often a message digest	ETag: "737060cd8c284d8af7ad3082f209582d"	Permanent
  */
-export const ETag = 'ETag';
+export const ETAG = 'ETag';
 
 /**
  * Gives the date/time after which the response is considered stale (in "HTTP-date" format as defined by RFC 7231)	Expires: Thu, 01 Dec 1994 16:00:00 GMT	Permanent: standard
  */
-export const Expires = 'Expires';
+export const EXPIRES = 'Expires';
 
 /**
  * The last modified date for the requested object (in "HTTP-date" format as defined by RFC 7231)	Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT	Permanent
  */
-export const Last-Modified = 'Last-Modified';
+export const LAST_MODIFIED = 'Last-Modified';
 
 /**
  * Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988	Link: </feed>; rel="alternate"[33]	Permanent
  */
-export const Link = 'Link';
+export const LINK = 'Link';
 
 /**
  * Used in redirection, or when a new resource has been created.	Location: http://www.w3.org/pub/WWW/People.html	Permanent
  */
-export const Location = 'Location';
+export const LOCATION = 'Location';
 
-		P3P	This field is supposed to set P3P policy, in the form of P3P:CP="your_compact_policy". However, P3P did not take off,[34] most browsers have never fully implemented it, a lot of websites set this field with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies.	P3P: CP="This is not a P3P policy! See http://www.google.com/support/accounts/bin/answer.py?hl=en&answer=151657 for more info."	Permanent
+/**
+ * This field is supposed to set P3P policy, in the form of P3P:CP="your_compact_policy". However, P3P did not take off,[34] most browsers have never fully implemented it, a lot of websites set this field with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies.	P3P: CP="This is not a P3P policy! See http://www.google.com/support/accounts/bin/answer.py?hl=en&answer=151657 for more info."	Permanent
+ * @type {string}
+ */
+export const P3P = 'P3P';
+
 /**
  * Implementation-specific fields that may have various effects anywhere along the request-response chain.	Pragma: no-cache	Permanent
  */
-export const Pragma = 'Pragma';
+export const PRAGMA = 'Pragma';
 
 /**
  * Request authentication to access the proxy.	Proxy-Authenticate: Basic	Permanent
  */
-export const Proxy-Authenticate = 'Proxy-Authenticate';
+export const PROXY_AUTHENTICATION = 'Proxy-Authenticate';
 
 /**
  * HTTP Public Key Pinning, announces hash of website's authentic TLS certificate	Public-Key-Pins: max-age=2592000; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=";	Permanent
  */
-export const Public-Key-Pins[35] = 'Public-Key-Pins[35]';
+export const PUBLIC_KEY_PINS = 'Public-Key-Pins[35]';
 
 /**
  * Used in redirection, or when a new resource has been created. This refresh redirects after 5 seconds.	Refresh: 5; url=http://www.w3.org/pub/WWW/People.html	Proprietary and non-standard: a header extension introduced by Netscape and supported by most web browsers.
  */
-export const Refresh = 'Refresh';
+export const REFRESH = 'Refresh';
 
 /**
  * If an entity is temporarily unavailable, this instructs the client to try again later. Value could be a specified period of time (in seconds) or a HTTP-date.[36]
- */
-export const Retry-After = 'Retry-After';
 
-Example 1: Retry-After: 120
-Example 2: Retry-After: Fri, 07 Nov 2014 23:59:59 GMT
-Permanent
+ Example 1: Retry-After: 120
+ Example 2: Retry-After: Fri, 07 Nov 2014 23:59:59 GMT
+ Permanent
+ *
+ */
+export const RETRY_AFTER = 'Retry-After';
 
 /**
  * A name for the server	Server: Apache/2.4.1 (Unix)	Permanent
  */
-export const Server = 'Server';
+export const SERVER = 'Server';
 
 /**
  * An HTTP cookie	Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1	Permanent: standard
  */
-export const Set-Cookie = 'Set-Cookie';
+export const SET_COOKIE = 'Set-Cookie';
 
 /**
  * CGI header field specifying the status of the HTTP response. Normal HTTP responses use a separate "Status-Line" instead, defined by RFC 7230.[37]	Status: 200 OK	Not listed as a registered field name
  */
-export const Status = 'Status';
+export const STATUS = 'Status';
 
 /**
  * A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains.	Strict-Transport-Security: max-age=16070400; includeSubDomains	Permanent: standard
  */
-export const Strict-Transport-Security = 'Strict-Transport-Security';
+export const STRICT_TRANSPORT_SECURITY = 'Strict-Transport-Security';
 
 /**
  * The Trailer general field value indicates that the given set of header fields is present in the trailer of a message encoded with chunked transfer coding.	Trailer: Max-Forwards	Permanent
  */
-export const Trailer = 'Trailer';
+export const TRAILER = 'Trailer';
 
 /**
  * The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity.	Transfer-Encoding: chunked	Permanent
  */
-export const Transfer-Encoding = 'Transfer-Encoding';
+export const TRANSFER_ENCODING = 'Transfer-Encoding';
 
 /**
  * Ask the client to upgrade to another protocol.	Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11	Permanent
  */
-export const Upgrade = 'Upgrade';
+export const UPGRADE = 'Upgrade';
 
 /**
  * Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.	Vary: *	Permanent
  */
-export const Vary = 'Vary';
+export const VARY = 'Vary';
 
 /**
  * Informs the client of proxies through which the response was sent.	Via: 1.0 fred, 1.1 example.com (Apache/1.1)	Permanent
  */
-export const Via = 'Via';
+export const VIA = 'Via';
 
 /**
  * A general warning about possible problems with the entity body.	Warning: 199 Miscellaneous warning	Permanent
  */
-export const Warning = 'Warning';
+export const WARNING = 'Warning';
 
 /**
  * Indicates the authentication scheme that should be used to access the requested entity.	WWW-Authenticate: Basic	Permanent
  */
-export const WWW-Authenticate = 'WWW-Authenticate';
+export const WWW_AUTHENTICATE = 'WWW-Authenticate';
 
 /**
  * Clickjacking protection: deny - no rendering within a frame, sameorigin - no rendering if origin mismatch, allow-from - allow from specified location, allowall - non-standard, allow from any location	X-Frame-Options: deny	Obsolete[39]
  */
-export const X-Frame-Options[38] = 'X-Frame-Options[38]';
+export const X_FRAME_OPTIONS = 'X-Frame-Options[38]';
 
 /**
  * Cross-site scripting (XSS) filter	X-XSS-Protection: 1; mode=block
  */
-export const X-XSS-Protection[40] = 'X-XSS-Protection[40]';
+export const X_XSS_PROTECTION = 'X-XSS-Protection[40]';
 
 /**
  * X-Content-Security-Policy, X-WebKit-CSP[41]	Content Security Policy definition.	X-WebKit-CSP: default-src 'self'
  */
-export const Content-Security-Policy, = 'Content-Security-Policy,';
+export const CONTENT_SECURITY_POLICY = 'Content-Security-Policy,';
 
 /**
  * The only defined value, "nosniff", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type. This also applies to Google Chrome, when downloading extensions.[43]	X-Content-Type-Options: nosniff
  */
-export const X-Content-Type-Options[42] = 'X-Content-Type-Options[42]';
+export const X_CONTENT_TYPE_OPTIONS = 'X-Content-Type-Options[42]';
 
 /**
  * specifies the technology (e.g. ASP.NET, PHP, JBoss) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)	X-Powered-By: PHP/5.4.0
  */
-export const X-Powered-By[44] = 'X-Powered-By[44]';
+export const X_POWERED_BY = 'X-Powered-By[44]';
 
 /**
  * Recommends the preferred rendering engine (often a backward-compatibility mode) to use to display the content. Also used to activate Chrome Frame in Internet Explorer.	X-UA-Compatible: IE=EmulateIE7
- */
-export const X-UA-Compatible[45] = 'X-UA-Compatible[45]';
 
-X-UA-Compatible: IE=edge
-X-UA-Compatible: Chrome=1
+ X-UA-Compatible: IE=edge
+ X-UA-Compatible: Chrome=1
+ */
+export const X_UA_COMPATIBLE = 'X-UA-Compatible[45]';
+
 /**
  * Provide the duration of the audio or video in seconds; only supported by Gecko browsers	X-Content-Duration: 42.666
  */
-export const X-Content-Duration[46] = 'X-Content-Duration[46]';
+export const X_CONTENT_DURATION = 'X-Content-Duration[46]';
 
