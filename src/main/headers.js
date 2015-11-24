@@ -238,28 +238,43 @@ export const REFERER = 'Referer';
 export const TE = 'TE';
 
 /**
- * The user agent string of the user agent	User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0	Permanent
+ * The user agent string of the user agent. Permanent.
+ * Examples:
+ * <code>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0</code>
+ * @type {String}
  */
 export const USER_AGENT = 'User-Agent';
 
 /**
- * Ask the server to upgrade to another protocol.	Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11	Permanent
+ * Ask the server to upgrade to another protocol. Permanent.
+ * Examples:
+ * <code>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11</code>
+ * @type {String}
  */
 export const UPGRADE = 'Upgrade';
 
 /**
- * Informs the server of proxies through which the request was sent.	Via: 1.0 fred, 1.1 example.com (Apache/1.1)	Permanent
+ * Informs the server of proxies through which the request was sent. Permanent.
+ * Examples:
+ * <code>Via: 1.0 fred, 1.1 example.com (Apache/1.1)</code>
+ * @type {String}
  */
 export const VIA = 'Via';
 
 /**
- * A general warning about possible problems with the entity body.	Warning: 199 Miscellaneous warning	Permanent
+ * A general warning about possible problems with the entity body. Permanent.
+ * Examples:
+ * <code>Warning: 199 Miscellaneous warning</code>
+ * @type {String}
  */
 export const WARNING = 'Warning';
 
 
 /**
- * mainly used to identify Ajax requests. Most JavaScript frameworks send this field with value of XMLHttpRequest	X-Requested-With: XMLHttpRequest
+ * mainly used to identify Ajax requests. Most JavaScript frameworks send this field with value of XMLHttpRequest.
+ * Examples:
+ * <code>X-Requested-With: XMLHttpRequest</code>
+ * @type {String}
  */
 export const X_REQUESTED_WITH = 'X-Requested-With';
 
@@ -275,41 +290,63 @@ export const X_REQUESTED_WITH = 'X-Requested-With';
 export const DNT = 'DNT';
 
 /**
- * a de facto standard for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer	X-Forwarded-For: client1, proxy1, proxy2
- X-Forwarded-For: 129.78.138.66, 129.78.64.103
+ * A de facto standard for identifying the originating IP address of a client connecting to a web server through an
+ * HTTP proxy or load balancer.
+ * Examples:
+ * <code>X-Forwarded-For: client1, proxy1, proxy2</code>
+ * <code>X-Forwarded-For: 129.78.138.66, 129.78.64.103</code>
+ * @type {String}
  */
-export const X_FORWARDED_FOR = 'X-Forwarded-For[15]';
+export const X_FORWARDED_FOR = 'X-Forwarded-For';
 
 
 /**
- * a de facto standard for identifying the original host requested by the client in the Host HTTP request header, since
+ * A de facto standard for identifying the original host requested by the client in the Host HTTP request header, since
  * the host name and/or port of the reverse proxy (load balancer) may differ from the origin server handling the
- * request.	X-Forwarded-Host: en.wikipedia.org:80
- X-Forwarded-Host: en.wikipedia.org
+ * request.
+ * Examples:
+ * <code>X-Forwarded-Host: en.wikipedia.org:80</code>
+ * <code>X-Forwarded-Host: en.wikipedia.org</code>
+ * @type {String}
  */
-export const X_FORWARDED_HOST = 'X-Forwarded-Host[16]';
+export const X_FORWARDED_HOST = 'X-Forwarded-Host';
 
 /**
- * a de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (load
+ * A de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (load
  * balancer) may communicate with a web server using HTTP even if the request to the reverse proxy is HTTPS. An
- * alternative form of the header (X-ProxyUser-Ip) is used by Google clients talking to Google servers.	X-Forwarded-Proto: https
+ * alternative form of the header (X-ProxyUser-Ip) is used by Google clients talking to Google servers.
+ * Examples:
+ * <code>X-Forwarded-Proto: https</code>
+ * @type {String}
  */
-export const X_FORWARDED_PROTO = 'X-Forwarded-Proto[17]';
+export const X_FORWARDED_PROTO = 'X-Forwarded-Proto';
 
 /**
- * Non-standard header field used by Microsoft applications and load-balancers	Front-End-Https: on
+ * Non-standard header field used by Microsoft applications and load-balancers.
+ * Examples:
+ * <code>Front-End-Https: on</code>
+ * @type {String}
  */
-export const FRONT_END_HTTPS = 'Front-End-Https[18]';
+export const FRONT_END_HTTPS = 'Front-End-Https';
 
 /**
- * Requests a web application override the method specified in the request (typically POST) with the method given in the header field (typically PUT or DELETE). Can be used when a user agent or firewall prevents PUT or DELETE methods from being sent directly (note that this either a bug in the software component, which ought to be fixed, or an intentional configuration, in which case bypassing it may be the wrong thing to do).	X-HTTP-Method-Override: DELETE
+ * Requests a web application override the method specified in the request (typically POST) with the method given in
+ * the header field (typically PUT or DELETE). Can be used when a user agent or firewall prevents PUT or DELETE methods
+ * from being sent directly (note that this either a bug in the software component, which ought to be fixed, or an
+ * intentional configuration, in which case bypassing it may be the wrong thing to do).
+ * Examples:
+ * <code>X-HTTP-Method-Override: DELETE</code>
+ * @type {String}
  */
-export const X_HTTP_METHOD_OVERRIDE = 'X-Http-Method-Override[19]';
+export const X_HTTP_METHOD_OVERRIDE = 'X-Http-Method-Override';
 
 /**
- * Allows easier parsing of the MakeModel/Firmware that is usually found in the User-Agent String of AT&T Devices	X-Att-Deviceid: GT-P7320/P7320XXLPG
+ * Allows easier parsing of the MakeModel/Firmware that is usually found in the User-Agent String of AT&T Devices.
+ * Examples:
+ * <code>X-Att-Deviceid: GT-P7320/P7320XXLPG</code>
+ * @type {String}
  */
-export const X_ATT_DEVICEID = 'X-ATT-DeviceId[20]';
+export const X_ATT_DEVICEID = 'X-ATT-DeviceId';
 
 /**
  * Links to an XML file on the Internet with a full description and details about the device currently connecting. In the example to the right is an XML file for an AT&T Samsung Galaxy S2.	x-wap-profile: http://wap.samsungmobile.com/uaprof/SGH-I777.xml
