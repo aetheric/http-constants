@@ -4,6 +4,8 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var util = require('gulp-util');
+var jsdoc = require('gulp-jsdoc');
+var pages = require('gulp-gh-pages');
 
 gulp.task('build', function () {
 	return gulp.src('src/main/**/*.js')
@@ -20,6 +22,18 @@ gulp.task('test', function (done) {
 			.on('error', util.log)
 
 			.once('close', done);
+
+});
+
+gulp.task('docs', function () {
+	return gulp.src('src/main/**/*.js')
+
+			.pipe(jsdoc()) // generate jsdoc
+
+			.pipe(pages())
+
+			.pipe(gulp.dest('target/dist'));
+
 
 });
 

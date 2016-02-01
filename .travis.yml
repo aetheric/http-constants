@@ -1,7 +1,17 @@
 language: node_js
 
 node_js:
-  - "0.10"
+  - '4.1'
+
+before_install:
+  - npm install -g npm@latest
+
+after_install:
+  - npm config set tag-version-prefix "" --global
+  - npm config set tag-version-prefix ""
+
+before_script:
+  - npm version `git describe --tags` --no-git-tag
 
 script:
   - gulp build
@@ -12,21 +22,11 @@ before_deploy:
   - rm -rf src/test
 
 deploy:
-
-  - provider: npm
+  provider: npm
     email: peterc@aetheric.co.nz
     skip_cleanup: true
     api_key:
-      secure: ???
+      secure: qUm0M9qS6rDRFjPCrq43QOK7a9qc8ePmlIqjX5x4HYUMhfVn8lGHJn8nHX/JsDdoCUe34Rvv2S+GTV6wCTbZgg5AwCLXOGx8USQZi0RqVrb7E3pENHeBmz3xwrAhLiEc05DOFjsLwrwWEUE2bNRKU9MOf1bIcRGfDFh7Y8lcQ0Gt9i1djDZr3sbCuUUaRRc2FQO4rYfEwDKgYkCD9FWf8U2MfgRNcKwCyFQThJ/eZpJtGJMCHtHOwSmhovL1hmTK5Woj7/uEwfbBNI3Py4bp2ljGmaNyfEEUXgcCDO7bHYLIDMk5vH+a4u+HatGfztgYfVhcQ4zLG5UDfeUAzNgnby3CtcSSJBkTVCyFcWqqjSrBy8v1wD2jB0xwbiOL7roF82fz8QVvNYwNEpTf6SFRMZlMjBBQZuQnfclWS1Hh3vFxA/JuAtQcCArBUdzCK0MP6w5/SMShB2WYzF3QgfSfRgzQWBtTcDHX16QeaxwK92+/HqAlJsQ8UZUCiSTjxlbglzN8W6pW30Ojfg2O+2NLv870lykTXS4dMQksGX2GHX5yxyd/rluZu51BtQqTp+TELIUp7WUnY7YfYW1Mp17MXDDkBgrRDvERW11+W3oPwHorF5QsQ7uZ+lTZR846os7tgYREBH3HTuXDoYEVi7CDsVf98g6zKQhSoCkshSqMdds=
     on:
-      tags: true
-
-  - provider: releases
-    skip_cleanup: true
-    file:
-      - dist/http-constants.js
-      - dist/http-constants.min.js
-    api_key:
-      secure: ???
-    on:
-      tags: true
+      repo: aetheric/http-constants
+      all_branches: true
