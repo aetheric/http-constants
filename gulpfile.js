@@ -7,6 +7,8 @@ var util = require('gulp-util');
 var jsdoc = require('gulp-jsdoc');
 var pages = require('gulp-gh-pages');
 
+var info = require('./package.json');
+
 gulp.task('build', function () {
 	return gulp.src('src/main/**/*.js')
 
@@ -17,7 +19,15 @@ gulp.task('build', function () {
 gulp.task('test', function (done) {
 	gulp.src('src/test/**/*.spec.js')
 
-			.pipe(mocha({}))
+			.pipe(mocha({
+				ui: 'bdd',
+				reporter: 'spec',
+				bail: false,
+				grep: '^.+\\.spec\\..+$',
+				compilers: {
+					js: 'mocha-traceur'
+				}
+			}))
 
 			.on('error', util.log)
 
@@ -28,17 +38,23 @@ gulp.task('test', function (done) {
 gulp.task('docs', function () {
 	return gulp.src('src/main/**/*.js')
 
-			.pipe(jsdoc()) // generate jsdoc
+			.pipe(jsdoc.parser({
+				name: info.name,
+				description: info.description,
+				version: info.version,
+				licenses: [ info.license ]
 
-			.pipe(pages())
+			}))
 
-			.pipe(gulp.dest('target/dist'));
-
+			.pipe(jsdoc.generator('target/docs'));
 
 });
 
-gulp.task('dist', function () {
-	// npm deploy then increment version.
+gulp.task('pages', [ 'docs' ], function() {
+	return gulp.src('target/docs')
+
+		.pipe(pages());
+
 });
 
-gulp.task('default', ['build', 'test']);
+gulp.task('default', ['build', 'test', 'docs' ]);

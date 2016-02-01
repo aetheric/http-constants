@@ -3379,4 +3379,3 @@ export const zmm = 'application/vnd.handheld-entertainment+xml';
  * Zzazz Deck
  */
 export const zaz = 'application/vnd.zzazz.deck+xml';
-

@@ -22,9 +22,9 @@
   "homepage": "https://github.com/aetheric/http-constants#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-jsdoc": "^0.1.5",
     "gulp-mocha": "^2.2.0",
-    "gulp-utils": "",
-    "gulp-jsdoc": "",
-    "gulp-gh-pages": ""
+    "gulp-util": "^3.0.7"
   }
 }
