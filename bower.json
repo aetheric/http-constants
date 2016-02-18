@@ -1,6 +1,5 @@
 {
   "name": "http-constants",
-  "version": "1.1.0-alpha.1",
   "authors": [
     "Peter Cummuskey <peterc@aetheric.co.nz>"
   ],
@@ -19,8 +18,7 @@
     "node_modules",
     "bower_components",
     "src/test",
-	".gitignore",
-	"package.json",
-	"gulpfile.js"
+    ".gitignore",
+    "gulpfile.js"
   ]
 }
