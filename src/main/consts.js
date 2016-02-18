@@ -1,31 +1,34 @@
 /* globals */
 'use strict';
 
-import * as _codes from './consts-codes.js';
-import * as _headers from './consts-headers.js';
-import * as _methods from './consts-methods.js';
-import * as _types from './consts-types.js';
+import _codes from './consts-codes.js';
+import _headers from './consts-headers.js';
+import _methods from './consts-methods.js';
+import _types from './consts-types.js';
 
 /**
- *
- * @type {--global-type--}
+ * @typedef {Object} CONSTS
  */
-export const codes = _codes;
+export default Object.freeze({
 
-/**
- *
- * @type {--global-type--}
- */
-export const headers = _headers;
+	/**
+	 * @type {CONSTSCODES}
+	 */
+	codes: _codes,
 
-/**
- *
- * @type {--global-type--}
- */
-export const methods = _methods;
+	/**
+	 * @type {CONSTSHEADERS}
+	 */
+	headers: _headers,
 
-/**
- *
- * @type {--global-type--}
- */
-export const types = _types;
+	/**
+	 * @type {CONSTSMETHODS}
+	 */
+	methods: _methods,
+
+	/**
+	 * @type {CONSTSTYPES}
+	 */
+	types: _types
+
+});

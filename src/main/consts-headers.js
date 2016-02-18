@@ -5,13 +5,18 @@ import * as _request from './consts-headers-request.js';
 import * as _response from './consts-headers-response.js';
 
 /**
- *
- * @type {--global-type--}
+ * @typedef {Object} CONSTSHEADERS
  */
-export const request = _request;
+export default Object.freeze({
 
-/**
- *
- * @type {--global-type--}
- */
-export const reponse = _response;
+	/**
+	 * @type {CONSTSHEADERSREQUEST}
+	 */
+	request: _request,
+
+	/**
+	 * @type {CONSTSHEADERSRESPONSE}
+	 */
+	reponse: _response
+
+});
