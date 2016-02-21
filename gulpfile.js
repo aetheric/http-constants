@@ -7,6 +7,7 @@ var util = require('gulp-util');
 var jsdoc = require('gulp-jsdoc3');
 var pages = require('gulp-gh-pages');
 var sourcemaps = require('gulp-sourcemaps');
+var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var traceur = require('gulp-traceur-compiler');
@@ -22,7 +23,13 @@ gulp.task('build', function () {
 
 			.pipe(concat('http-constants.js'))
 
+			.pipe(gulp.dest('target/dist'))
+
 			.pipe(uglify())
+
+			.pipe(rename({
+				extname: '.min.js'
+			}))
 
 			.pipe(sourcemaps.write('.'))
 
