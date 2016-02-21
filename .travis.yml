@@ -22,11 +22,21 @@ before_deploy:
   - rm -rf src/test
 
 deploy:
-  provider: npm
-  email: peterc@aetheric.co.nz
-  skip_cleanup: true
-  api_key:
-    secure: iS+K/ACit/g80L88kOEnPE4fpm72ZWVahLB7UKrxpNRBlETC3blIu8bXTEqpHXNA0xa3WhIPt/0hnGVLGLWYT8jpc+t8SEu2GCozDKpzSvZ8Ni2odwNJpb/ki8sg2KX5dJAWX3TfRKv8g0Lf4HH+JAG5uaq6yDxl7aiilhFYzMDHjn+WRyzFMc9kzcEp+bxBA/Tt/8ufNIb+txRr31N9yVJ2fAeGdN+vASBHHL8YX+u4J7I8U7kJ+7nsGUibcRb70XNtM3GWSPAfPDZRhw9egV4sF84RH7VXfpeZBwKGoahBHtl33R2qdVZpwLu8FmstmYF0hnYT/0XVeVWfmw0K94JOpjNBhOoDdIlDgInhop9+OPdj0RgnpYxqrRiyYmkdrGIioEgll1pGNAQXrN4oCsADKCDXLDIlGMS9ubuPDsO+33+CXnS3EjXxux6Vlgq5tdVoyQvs4g2I1UhUzAT14MAGeDAZHSRi2KVNRFtKES6x1K7jZz00nGZ7yaAmF4i4vxTP2C13cgF/gKDv0TrNqRX2ODtzvBnTaBXvjQyPGJRNGkguasJSX81Rn1eUn7D+paRe9klJBNzyjHddyVZiEyyn6UMbZFl0r2Eba78YznNHSOxEyvtP8recoOCF8lvCk1pP+FEhJ9vgRk2xbtvCe1hmcgxXKGBI6+kVVgy+bUg=
-  on:
-    repo: aetheric/http-constants
-    all_branches: true
+
+  - provider: npm
+    email: peterc@aetheric.co.nz
+    skip_cleanup: true
+    api_key:
+      secure: iS+K/ACit/g80L88kOEnPE4fpm72ZWVahLB7UKrxpNRBlETC3blIu8bXTEqpHXNA0xa3WhIPt/0hnGVLGLWYT8jpc+t8SEu2GCozDKpzSvZ8Ni2odwNJpb/ki8sg2KX5dJAWX3TfRKv8g0Lf4HH+JAG5uaq6yDxl7aiilhFYzMDHjn+WRyzFMc9kzcEp+bxBA/Tt/8ufNIb+txRr31N9yVJ2fAeGdN+vASBHHL8YX+u4J7I8U7kJ+7nsGUibcRb70XNtM3GWSPAfPDZRhw9egV4sF84RH7VXfpeZBwKGoahBHtl33R2qdVZpwLu8FmstmYF0hnYT/0XVeVWfmw0K94JOpjNBhOoDdIlDgInhop9+OPdj0RgnpYxqrRiyYmkdrGIioEgll1pGNAQXrN4oCsADKCDXLDIlGMS9ubuPDsO+33+CXnS3EjXxux6Vlgq5tdVoyQvs4g2I1UhUzAT14MAGeDAZHSRi2KVNRFtKES6x1K7jZz00nGZ7yaAmF4i4vxTP2C13cgF/gKDv0TrNqRX2ODtzvBnTaBXvjQyPGJRNGkguasJSX81Rn1eUn7D+paRe9klJBNzyjHddyVZiEyyn6UMbZFl0r2Eba78YznNHSOxEyvtP8recoOCF8lvCk1pP+FEhJ9vgRk2xbtvCe1hmcgxXKGBI6+kVVgy+bUg=
+    on:
+      repo: aetheric/http-constants
+      all_branches: true
+
+  - provider: releases
+    api_key:
+      secure: mp4AU1QewMeI6ACD8IJVr6KwqC4EFscofQM5c8/W5XMdOwc9d8Ws7ZFDPYqvEF6rKZ4eg8q//DuJJ2NOi5p3W80VSAxF0xhQtc5FUlf5/WQg0FFa+rCnVOXWmAprZRSsgeDJNz6geTl8DY6Uw8JfJKs6LmUo4ExAB4Oo+P+anejirFD9nhDq2DBnf6qdRs+bnp969PERMsci7pXK0wpVM0vDSEbOp9YrKVOYXD3jgycWZIefxP9yIW+SYspI5MqXGrYJfH91OeBx7ak/Mj1DkySwZHDfxKq0ZKZrvnmrbW64VkxxnpfkOGc55Zc/6YAEQQVY/ZjrZ3sDipF01kY4tB6Ug7wIzMyDshzM8d7rRj/BGh9Khhm5vIgHnKYc5useU9gZZl8R7zln4Hq9wsbNrzZlDp67g4g9d9TjpWZo2P5NC4u1dslQOftaPKY0HCpZWiCFyDq/aIxca9Do/mNWczCWPFCrdaWdKASPIlJvcn+QPi/OYQCidwr4clT1aqOKduLyq50124d6NrVoCcLnAl1RTu8YdZb96mCDTq7cFn6W/ZmV3cxZPz5nRSHQxcIKCzjNUYKXQQd+kzLalMWbLslAeyNiAPPnOecAdxcKsY4EcpX3wp//ezXw31E4G6zzXaWuxzREUhqYwPtCvZj9rbNIC7jaIJKhDcvQM8/8HXw=
+    file:
+      - dist/http-constants.js
+      - dist/http-constants.min.js
+    on:
+      repo: aetheric/http-constants
