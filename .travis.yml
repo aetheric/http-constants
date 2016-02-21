@@ -33,6 +33,7 @@ deploy:
       all_branches: true
 
   - provider: releases
+    skip_cleanup: true
     api_key:
       secure: mp4AU1QewMeI6ACD8IJVr6KwqC4EFscofQM5c8/W5XMdOwc9d8Ws7ZFDPYqvEF6rKZ4eg8q//DuJJ2NOi5p3W80VSAxF0xhQtc5FUlf5/WQg0FFa+rCnVOXWmAprZRSsgeDJNz6geTl8DY6Uw8JfJKs6LmUo4ExAB4Oo+P+anejirFD9nhDq2DBnf6qdRs+bnp969PERMsci7pXK0wpVM0vDSEbOp9YrKVOYXD3jgycWZIefxP9yIW+SYspI5MqXGrYJfH91OeBx7ak/Mj1DkySwZHDfxKq0ZKZrvnmrbW64VkxxnpfkOGc55Zc/6YAEQQVY/ZjrZ3sDipF01kY4tB6Ug7wIzMyDshzM8d7rRj/BGh9Khhm5vIgHnKYc5useU9gZZl8R7zln4Hq9wsbNrzZlDp67g4g9d9TjpWZo2P5NC4u1dslQOftaPKY0HCpZWiCFyDq/aIxca9Do/mNWczCWPFCrdaWdKASPIlJvcn+QPi/OYQCidwr4clT1aqOKduLyq50124d6NrVoCcLnAl1RTu8YdZb96mCDTq7cFn6W/ZmV3cxZPz5nRSHQxcIKCzjNUYKXQQd+kzLalMWbLslAeyNiAPPnOecAdxcKsY4EcpX3wp//ezXw31E4G6zzXaWuxzREUhqYwPtCvZj9rbNIC7jaIJKhDcvQM8/8HXw=
     file:
@@ -41,3 +42,4 @@ deploy:
       - target/dist/http-constants.min.js
     on:
       repo: aetheric/http-constants
+      tags: true
