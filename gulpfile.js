@@ -46,7 +46,7 @@ gulp.task('test', function (done) {
 				ui: 'bdd',
 				reporter: 'spec',
 				bail: false,
-				grep: '^.+\\.spec\\..+$',
+				grep: '^.+\\.spec\\.js$',
 				compilers: {
 					js: 'mocha-traceur'
 				}
@@ -75,7 +75,7 @@ gulp.task('docs', function (done) {
 });
 
 gulp.task('pages', [ 'docs' ], function() {
-	return gulp.src('target/docs')
+	return gulp.src('target/docs/**')
 
 		.pipe(pages());
 
