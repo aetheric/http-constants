@@ -24,6 +24,7 @@ after_install:
 
 before_script:
   - npm version `git describe --tags` --no-git-tag
+  - cat package.json | grep version
 
 script:
   - gulp build
