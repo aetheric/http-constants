@@ -1,6 +1,5 @@
 {
   "name": "http-constants",
-  "version": "1.0.0",
   "description": "Constant values for http (headers, codes, etc.)",
   "main": "index.js",
   "scripts": {
