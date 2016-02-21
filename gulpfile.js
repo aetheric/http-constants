@@ -12,6 +12,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var traceur = require('gulp-traceur-compiler');
 
+require('mocha-traceur');
+
 var info = require('./package.json');
 
 gulp.task('build', function () {
