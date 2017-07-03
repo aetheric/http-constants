@@ -1,9 +1,12 @@
 {
   "name": "http-constants",
   "description": "Constant values for http (headers, codes, etc.)",
-  "main": "index.js",
+  "main": "target/dist/http-constants.min.js",
   "scripts": {
-    "test": "gulp test"
+    "build": "gulp build",
+    "test": "gulp test",
+    "docs": "gulp docs",
+    "prepublish": "gulp"
   },
   "repository": {
     "type": "git",

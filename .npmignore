@@ -1,0 +1,9 @@
+# npmignore
+node_modules/
+bower_components/
+.idea/
+src/test/
+.gitignore
+.travis.yml
+gulpfile.js
+*.iml
