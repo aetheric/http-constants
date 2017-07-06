@@ -27,9 +27,7 @@ before_script:
   - cat package.json | grep version
 
 script:
-  - gulp build
-  - gulp test
-  - gulp docs
+  - gulp
 
 before_deploy:
   - rm -rf src/test
@@ -48,11 +46,10 @@ deploy:
   - provider: releases
     skip_cleanup: true
     api_key:
-      secure: mp4AU1QewMeI6ACD8IJVr6KwqC4EFscofQM5c8/W5XMdOwc9d8Ws7ZFDPYqvEF6rKZ4eg8q//DuJJ2NOi5p3W80VSAxF0xhQtc5FUlf5/WQg0FFa+rCnVOXWmAprZRSsgeDJNz6geTl8DY6Uw8JfJKs6LmUo4ExAB4Oo+P+anejirFD9nhDq2DBnf6qdRs+bnp969PERMsci7pXK0wpVM0vDSEbOp9YrKVOYXD3jgycWZIefxP9yIW+SYspI5MqXGrYJfH91OeBx7ak/Mj1DkySwZHDfxKq0ZKZrvnmrbW64VkxxnpfkOGc55Zc/6YAEQQVY/ZjrZ3sDipF01kY4tB6Ug7wIzMyDshzM8d7rRj/BGh9Khhm5vIgHnKYc5useU9gZZl8R7zln4Hq9wsbNrzZlDp67g4g9d9TjpWZo2P5NC4u1dslQOftaPKY0HCpZWiCFyDq/aIxca9Do/mNWczCWPFCrdaWdKASPIlJvcn+QPi/OYQCidwr4clT1aqOKduLyq50124d6NrVoCcLnAl1RTu8YdZb96mCDTq7cFn6W/ZmV3cxZPz5nRSHQxcIKCzjNUYKXQQd+kzLalMWbLslAeyNiAPPnOecAdxcKsY4EcpX3wp//ezXw31E4G6zzXaWuxzREUhqYwPtCvZj9rbNIC7jaIJKhDcvQM8/8HXw=
+      secure: ulTGJ/cojpAOJoHFX8QkVfCO8s8kGGSimHIYvJpr06P3R7zgpbZiwxc4CYqOOW0xuNI9VMD9Fa+MBwSJdF+rbnsBdCPY/pXj+xGSc6TlLez/R22wFulCssssLO+ObCR934/rVfsvlH1/qn1DXXasHbdYhXi+aJANNUQTYXV2G3FYBWqNvOJsGOh7O0Q/F7jFd9xvN2mj2E6Ws1bxc4vG2uNbFHESwW7el51J+cs07N2RpzfC5BKNNlYeuAqbsmIxMmhqSq1X379UQ1eUhKFevm/HAQhllWIj5FsQWOurt2AR0h9vVF9KtXi/A58ibU+KBG6rq8xVzGHasAv6efcPLmM8R4SMTUwk2kTjOoArOlxtRrA4GlgFPGTx9yq3arSSqZSIk4tyO1bkjkcWjElUALMVFDBiQ+SNhknOkRdzTxqFQHqGWzXYS59Le8OFfGA+dZnG+A9w8D3n7zraLqPLGYno+/B/bUP7ROIfjw1zwny/IkkerADM6HxeNzEQQi0rRLMlB1lQJ8740C7UqHAPm3LkshWcS/pkJRxs7mjN6RkPgAdmR6FcyK+7NuuxQyRpJVyU0OEDd/Q0dFErDpDfsiyUhqECahjZgjkWkz24TKFsV5xjU7PBLGNwcKQkfs9veuzO2pMdvnUL1e0PUi5iBmD4ZuLP86zxUUKcUpqy7qk=
     file:
-      - target/dist/http-constants.js
-      - target/dist/http-constants.min.js
-      - target/dist/http-constants.min.js.map
+      - target/dist/consts.js
+      - target/dist/consts.min.js
     on:
       repo: aetheric/http-constants
       tags: true
