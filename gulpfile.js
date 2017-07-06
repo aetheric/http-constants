@@ -1,84 +1,88 @@
 /* global require */
 'use strict';
 
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var util = require('gulp-util');
-var jsdoc = require('gulp-jsdoc3');
-var pages = require('gulp-gh-pages');
-var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var traceur = require('gulp-traceur-compiler');
+const del = require('del');
+const gulp = require('gulp');
+const rollup = require('gulp-better-rollup');
+const pages = require('gulp-gh-pages');
+const jsdoc = require('gulp-jsdoc3');
+const mocha = require('gulp-mocha');
+const rename = require('gulp-rename');
+const sequence = require('gulp-sequence');
+const sourcemaps = require('gulp-sourcemaps');
+const traceur = require('gulp-traceur');
+const uglify = require('gulp-uglify');
+const util = require('gulp-util');
 
-require('mocha-traceur');
+const info = require('./package.json');
 
-var info = require('./package.json');
+const opts = {
 
-gulp.task('build', function () {
-	return gulp.src('src/main/**/*.js')
+	rollup: {
+		treeshake: false,
+		format: 'cjs'
+	},
 
-			.pipe(sourcemaps.init())
+	mocha: {
+		ui: 'bdd',
+		reporter: 'spec',
+		bail: false
+	},
 
-			.pipe(traceur())
+	jsdoc: {
+		name: info.name,
+		description: info.description,
+		version: info.version,
+		licenses: [info.license],
+		opts: {
+			destination: "target/docs"
+		}
+	}
 
-			.pipe(concat('http-constants.js'))
+};
 
-			.pipe(gulp.dest('target/dist'))
+gulp.task('clean', () => del([
+	'target/**/*'
+]));
 
-			.pipe(uglify())
+gulp.task('build', () => gulp
 
-			.pipe(rename({
-				extname: '.min.js'
-			}))
+		.src('src/main/consts.js')
+		.pipe(sourcemaps.init())
 
-			.pipe(sourcemaps.write('.'))
-
-			.pipe(gulp.dest('target/dist'));
-
-});
-
-gulp.task('test', function (done) {
-	gulp.src('src/test/**/*.spec.js')
-
-			.pipe(mocha({
-				ui: 'bdd',
-				reporter: 'spec',
-				bail: false,
-				grep: '^.+\\.spec\\.js$',
-				compilers: {
-					js: 'mocha-traceur'
-				}
-			}))
-
+		.pipe(rollup(opts.rollup))
+		.pipe(traceur())
 			.on('error', util.log)
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('target/dist/'))
 
-			.once('close', done);
+		.pipe(uglify())
+			.on('error', util.log)
+		.pipe(rename({ extname: '.min.js' }))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('target/dist/'))
 
-});
+);
 
-gulp.task('docs', function (done) {
-	gulp.src('src/main/**/*.js', { read: false })
+gulp.task('test', [ 'build' ], () => gulp
+		.src('src/test/**/*.spec.js')
+		.pipe(mocha(opts.mocha))
+			.on('error', util.log)
+);
 
-			.pipe(jsdoc({
-				name: info.name,
-				description: info.description,
-				version: info.version,
-				licenses: [ info.license ],
-				opts: {
-					destination: "target/docs"
-				}
+gulp.task('docs', () => gulp
+		.src('src/main/**/*.js', { read: false })
+		.pipe(jsdoc(opts.jsdoc))
+);
 
-			}, done));
+gulp.task('pages', [ 'docs' ], () => gulp
+		.src('target/docs/**')
+		.pipe(pages())
+);
 
-});
-
-gulp.task('pages', [ 'docs' ], function() {
-	return gulp.src('target/docs/**')
-
-		.pipe(pages());
-
-});
-
-gulp.task('default', ['build', 'test', 'docs' ]);
+gulp.task('default', sequence(
+		'clean',
+		'build',
+		'test',
+		'docs'
+));
