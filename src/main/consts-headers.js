@@ -16,4 +16,5 @@ export const request = _request;
 /**
  * @type {CONSTSHEADERSRESPONSE}
  */
-export const reponse = _response;
+export const response = _response;
+
