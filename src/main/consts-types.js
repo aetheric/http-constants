@@ -1596,7 +1596,7 @@ export const flo = 'application/vnd.micrografx.flo';
 export const igx = 'application/vnd.micrografx.igx';
 
 /**
- * MICROSEC e-Szign�
+ * MICROSEC e-Szign
  */
 export const es3 = 'application/vnd.eszigno3+xml';
 

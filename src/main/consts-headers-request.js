@@ -195,7 +195,7 @@ export const MAX_FORWARDS = 'Max-Forwards';
  * <code>Origin: http://www.example-social-network.com</code>
  * @type {String}
  */
-export const Origin = 'Origin';
+export const ORIGIN = 'Origin';
 
 /**
  * Implementation-specific fields that may have various effects anywhere along the request-response chain. Permanent.
@@ -223,7 +223,7 @@ export const RANGE = 'Range';
 
 /**
  * This is the address of the previous web page from which a link to the currently requested page was followed. (The
- * word �referrer� has been misspelled in the RFC as well as in most implementations to the point that it has become
+ * word "referrer" has been misspelled in the RFC as well as in most implementations to the point that it has become
  * standard usage and is considered correct terminology). Permanent.
  * Examples:
  * <code>Referer: http://en.wikipedia.org/wiki/Main_Page</code>

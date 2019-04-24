@@ -632,7 +632,7 @@ export const NETWORK_AUTHENTICATION_REQUIRED = 511;
 /**
  * Unknown Error
  *
- * This status code is not specified in any RFC and is returned by certain services, for instance Microsoft Azure and CloudFlare servers = "The 520 error is essentially a �catch-all� response for when the origin server returns something unexpected or something that is not tolerated/interpreted (protocol violation or empty response)."[87]
+ * This status code is not specified in any RFC and is returned by certain services, for instance Microsoft Azure and CloudFlare servers = "The 520 error is essentially a "catch-all" response for when the origin server returns something unexpected or something that is not tolerated/interpreted (protocol violation or empty response)."[87]
  * @type {Number}
  */
 export const UNKNOWN_ERROR = 520;
