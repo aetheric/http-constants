@@ -2,87 +2,98 @@
 'use strict';
 
 const del = require('del');
-const gulp = require('gulp');
-const rollup = require('gulp-better-rollup');
-const pages = require('gulp-gh-pages');
-const jsdoc = require('gulp-jsdoc3');
-const mocha = require('gulp-mocha');
-const rename = require('gulp-rename');
-const sequence = require('gulp-sequence');
-const sourcemaps = require('gulp-sourcemaps');
-const traceur = require('gulp-traceur');
-const uglify = require('gulp-uglify');
-const util = require('gulp-util');
+const { src, dest, series } = require('gulp');
+const gulp_jsdoc = require('gulp-jsdoc3');
+const gulp_mocha = require('gulp-mocha');
+const gulp_pages = require('gulp-gh-pages');
+const gulp_rename = require('gulp-rename');
+const gulp_rollup = require('gulp-better-rollup');
+const gulp_sourcemaps = require('gulp-sourcemaps');
+const gulp_terser = require('gulp-terser');
+const rollup_babel = require('rollup-plugin-babel');
 
 const info = require('./package.json');
 
-const opts = {
+function clean() {
+	return del([
+		'target/**/*'
+	])
+}
 
-	rollup: {
-		treeshake: false,
-		format: 'cjs'
-	},
+function build(done) {
+	return src('src/main/consts.js')
 
-	mocha: {
-		ui: 'bdd',
-		reporter: 'spec',
-		bail: false
-	},
+			// Initialise source maps from sources.
+			.pipe(gulp_sourcemaps.init())
 
-	jsdoc: {
-		name: info.name,
-		description: info.description,
-		version: info.version,
-		licenses: [info.license],
-		opts: {
-			destination: "target/docs"
-		}
-	}
+			// Run rollup with babel and commonjs packaging.
+			.pipe(gulp_rollup({
+				treeshake: false,
+				format: 'cjs',
+				plugins: [
+					rollup_babel({
+						presets: [ '@babel/preset-env' ]
+					})
+				]
 
-};
+			})).on('error', done)
 
-gulp.task('clean', () => del([
-	'target/**/*'
-]));
+			// Write sourcemaps and output
+			.pipe(gulp_sourcemaps.write())
+			.pipe(dest('target/dist/'))
 
-gulp.task('build', () => gulp
+			// Minify generated code
+			.pipe(gulp_terser()).on('error', done)
+			.pipe(gulp_rename({ extname: '.min.js' }))
 
-		.src('src/main/consts.js')
-		.pipe(sourcemaps.init())
+			// Write minified files and sourcemaps
+			.pipe(gulp_sourcemaps.write())
+			.pipe(dest('target/dist/'));
 
-		.pipe(rollup(opts.rollup))
-		.pipe(traceur())
-			.on('error', util.log)
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('target/dist/'))
+}
 
-		.pipe(uglify())
-			.on('error', util.log)
-		.pipe(rename({ extname: '.min.js' }))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('target/dist/'))
+function test(done) {
+	return src('src/test/**/*.spec.js')
 
+			.pipe(gulp_mocha({
+				ui: 'bdd',
+				reporter: 'spec',
+				bail: false,
+
+			})).on('error', done);
+
+}
+
+function docs() {
+	return src('src/main/**/*.js', { read: false })
+
+			.pipe(gulp_jsdoc({
+				name: info.name,
+				description: info.description,
+				version: info.version,
+				licenses: [info.license],
+				opts: {
+					destination: "target/docs"
+				},
+
+			}));
+
+}
+
+function pages() {
+	return src('target/docs/**')
+			.pipe(gulp_pages());
+}
+
+exports.default = series(
+		clean,
+		build,
+		test,
+		docs
 );
 
-gulp.task('test', [ 'build' ], () => gulp
-		.src('src/test/**/*.spec.js')
-		.pipe(mocha(opts.mocha))
-			.on('error', util.log)
-);
-
-gulp.task('docs', () => gulp
-		.src('src/main/**/*.js', { read: false })
-		.pipe(jsdoc(opts.jsdoc))
-);
-
-gulp.task('pages', [ 'docs' ], () => gulp
-		.src('target/docs/**')
-		.pipe(pages())
-);
-
-gulp.task('default', sequence(
-		'clean',
-		'build',
-		'test',
-		'docs'
-));
+exports.clean = clean;
+exports.build = build;
+exports.test = series(build, test);
+exports.docs = docs;
+exports.pages = series(docs, pages);
