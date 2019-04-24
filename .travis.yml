@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - '5.6'
+  - '11'
 
 env:
   - CXX=g++-4.8
@@ -38,7 +38,17 @@ deploy:
     email: peterc@aetheric.co.nz
     skip_cleanup: true
     api_key:
-      secure: iS+K/ACit/g80L88kOEnPE4fpm72ZWVahLB7UKrxpNRBlETC3blIu8bXTEqpHXNA0xa3WhIPt/0hnGVLGLWYT8jpc+t8SEu2GCozDKpzSvZ8Ni2odwNJpb/ki8sg2KX5dJAWX3TfRKv8g0Lf4HH+JAG5uaq6yDxl7aiilhFYzMDHjn+WRyzFMc9kzcEp+bxBA/Tt/8ufNIb+txRr31N9yVJ2fAeGdN+vASBHHL8YX+u4J7I8U7kJ+7nsGUibcRb70XNtM3GWSPAfPDZRhw9egV4sF84RH7VXfpeZBwKGoahBHtl33R2qdVZpwLu8FmstmYF0hnYT/0XVeVWfmw0K94JOpjNBhOoDdIlDgInhop9+OPdj0RgnpYxqrRiyYmkdrGIioEgll1pGNAQXrN4oCsADKCDXLDIlGMS9ubuPDsO+33+CXnS3EjXxux6Vlgq5tdVoyQvs4g2I1UhUzAT14MAGeDAZHSRi2KVNRFtKES6x1K7jZz00nGZ7yaAmF4i4vxTP2C13cgF/gKDv0TrNqRX2ODtzvBnTaBXvjQyPGJRNGkguasJSX81Rn1eUn7D+paRe9klJBNzyjHddyVZiEyyn6UMbZFl0r2Eba78YznNHSOxEyvtP8recoOCF8lvCk1pP+FEhJ9vgRk2xbtvCe1hmcgxXKGBI6+kVVgy+bUg=
+      secure: "\
+        iS+K/ACit/g80L88kOEnPE4fpm72ZWVahLB7UKrxpNRBlETC3blIu8bXTEqpHXNA0xa3WhIPt/0hnGVL\
+        GLWYT8jpc+t8SEu2GCozDKpzSvZ8Ni2odwNJpb/ki8sg2KX5dJAWX3TfRKv8g0Lf4HH+JAG5uaq6yDxl\
+        7aiilhFYzMDHjn+WRyzFMc9kzcEp+bxBA/Tt/8ufNIb+txRr31N9yVJ2fAeGdN+vASBHHL8YX+u4J7I8\
+        U7kJ+7nsGUibcRb70XNtM3GWSPAfPDZRhw9egV4sF84RH7VXfpeZBwKGoahBHtl33R2qdVZpwLu8Fmst\
+        mYF0hnYT/0XVeVWfmw0K94JOpjNBhOoDdIlDgInhop9+OPdj0RgnpYxqrRiyYmkdrGIioEgll1pGNAQX\
+        rN4oCsADKCDXLDIlGMS9ubuPDsO+33+CXnS3EjXxux6Vlgq5tdVoyQvs4g2I1UhUzAT14MAGeDAZHSRi\
+        2KVNRFtKES6x1K7jZz00nGZ7yaAmF4i4vxTP2C13cgF/gKDv0TrNqRX2ODtzvBnTaBXvjQyPGJRNGkgu\
+        asJSX81Rn1eUn7D+paRe9klJBNzyjHddyVZiEyyn6UMbZFl0r2Eba78YznNHSOxEyvtP8recoOCF8lvC\
+        k1pP+FEhJ9vgRk2xbtvCe1hmcgxXKGBI6+kVVgy+bUg=\
+      "
     on:
       repo: aetheric/http-constants
       all_branches: true
@@ -46,7 +56,17 @@ deploy:
   - provider: releases
     skip_cleanup: true
     api_key:
-      secure: ulTGJ/cojpAOJoHFX8QkVfCO8s8kGGSimHIYvJpr06P3R7zgpbZiwxc4CYqOOW0xuNI9VMD9Fa+MBwSJdF+rbnsBdCPY/pXj+xGSc6TlLez/R22wFulCssssLO+ObCR934/rVfsvlH1/qn1DXXasHbdYhXi+aJANNUQTYXV2G3FYBWqNvOJsGOh7O0Q/F7jFd9xvN2mj2E6Ws1bxc4vG2uNbFHESwW7el51J+cs07N2RpzfC5BKNNlYeuAqbsmIxMmhqSq1X379UQ1eUhKFevm/HAQhllWIj5FsQWOurt2AR0h9vVF9KtXi/A58ibU+KBG6rq8xVzGHasAv6efcPLmM8R4SMTUwk2kTjOoArOlxtRrA4GlgFPGTx9yq3arSSqZSIk4tyO1bkjkcWjElUALMVFDBiQ+SNhknOkRdzTxqFQHqGWzXYS59Le8OFfGA+dZnG+A9w8D3n7zraLqPLGYno+/B/bUP7ROIfjw1zwny/IkkerADM6HxeNzEQQi0rRLMlB1lQJ8740C7UqHAPm3LkshWcS/pkJRxs7mjN6RkPgAdmR6FcyK+7NuuxQyRpJVyU0OEDd/Q0dFErDpDfsiyUhqECahjZgjkWkz24TKFsV5xjU7PBLGNwcKQkfs9veuzO2pMdvnUL1e0PUi5iBmD4ZuLP86zxUUKcUpqy7qk=
+      secure: "\
+        ulTGJ/cojpAOJoHFX8QkVfCO8s8kGGSimHIYvJpr06P3R7zgpbZiwxc4CYqOOW0xuNI9VMD9Fa+MBwSJ\
+        dF+rbnsBdCPY/pXj+xGSc6TlLez/R22wFulCssssLO+ObCR934/rVfsvlH1/qn1DXXasHbdYhXi+aJAN\
+        NUQTYXV2G3FYBWqNvOJsGOh7O0Q/F7jFd9xvN2mj2E6Ws1bxc4vG2uNbFHESwW7el51J+cs07N2RpzfC\
+        5BKNNlYeuAqbsmIxMmhqSq1X379UQ1eUhKFevm/HAQhllWIj5FsQWOurt2AR0h9vVF9KtXi/A58ibU+K\
+        BG6rq8xVzGHasAv6efcPLmM8R4SMTUwk2kTjOoArOlxtRrA4GlgFPGTx9yq3arSSqZSIk4tyO1bkjkcW\
+        jElUALMVFDBiQ+SNhknOkRdzTxqFQHqGWzXYS59Le8OFfGA+dZnG+A9w8D3n7zraLqPLGYno+/B/bUP7\
+        ROIfjw1zwny/IkkerADM6HxeNzEQQi0rRLMlB1lQJ8740C7UqHAPm3LkshWcS/pkJRxs7mjN6RkPgAdm\
+        R6FcyK+7NuuxQyRpJVyU0OEDd/Q0dFErDpDfsiyUhqECahjZgjkWkz24TKFsV5xjU7PBLGNwcKQkfs9v\
+        euzO2pMdvnUL1e0PUi5iBmD4ZuLP86zxUUKcUpqy7qk=
+      "
     file:
       - target/dist/consts.js
       - target/dist/consts.min.js
