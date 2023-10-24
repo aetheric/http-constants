@@ -6,6 +6,24 @@
  */
 
 /**
+ * URL-encoded Form Data
+ * @type {string}
+ */
+export const formUrl = 'application/x-www-form-urlencoded'
+
+/**
+ * Multipart Form Data
+ * @type {string}
+ */
+export const formMultipart = 'multipart/form-data'
+
+/**
+ * Octet Stream
+ * @type {string}
+ */
+export const octetStream = 'application/octet-stream'
+
+/**
  * 3D Crossword Plugin
  */
 export const x3d = 'application/vnd.hzn-3d-crossword';
