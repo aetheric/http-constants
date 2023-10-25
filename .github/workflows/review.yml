@@ -1,0 +1,26 @@
+---
+name: Commit Review
+on:
+  push: {}
+  workflow_dispatch: {}
+jobs:
+
+  review:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check-out code
+        uses: actions/checkout@v4
+
+      - name: Set-up NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org
+          cache:        npm
+
+      - name: Install dependencies
+        run:  npm install
+
+      - name: Run the build
+        run:  npx gulp
